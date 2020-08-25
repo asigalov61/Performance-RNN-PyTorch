@@ -206,7 +206,7 @@ if enable_logging:
     from torch.utils.tensorboard import SummaryWriter
     writer = SummaryWriter()
 
-last_saving_loss = 0
+last_saving_loss = 10
 loss_function = nn.CrossEntropyLoss()
 
 try:
