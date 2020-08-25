@@ -246,9 +246,10 @@ try:
 
         print(f'iter {iteration}, loss: {loss.item()}')
 
-        if time.time() - last_saving_time > saving_interval:
+        if loss.item() - last_saving_loss > 0:
             save_model()
-            last_saving_time = time.time()
+            last_saving_loss = loss.item()
+            
 
 except KeyboardInterrupt:
     save_model()
