@@ -206,7 +206,7 @@ if enable_logging:
     from torch.utils.tensorboard import SummaryWriter
     writer = SummaryWriter()
 
-last_saving_time = time.time()
+last_saving_loss = 0
 loss_function = nn.CrossEntropyLoss()
 
 try:
@@ -246,7 +246,7 @@ try:
 
         print(f'iter {iteration}, loss: {loss.item()}')
 
-        if loss.item() - last_saving_loss > 0:
+        if loss.item() - last_saving_loss < 0:
             save_model()
             last_saving_loss = loss.item()
             
