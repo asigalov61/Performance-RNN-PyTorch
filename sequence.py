@@ -14,8 +14,8 @@ from pretty_midi import PrettyMIDI, Note, Instrument
 DEFAULT_SAVING_PROGRAM = 1
 DEFAULT_LOADING_PROGRAMS = range(128)
 DEFAULT_RESOLUTION = 220
-DEFAULT_TEMPO = 120
-DEFAULT_VELOCITY = 64
+DEFAULT_TEMPO = 100
+DEFAULT_VELOCITY = 84
 DEFAULT_PITCH_RANGE = range(21, 109)
 DEFAULT_VELOCITY_RANGE = range(21, 109)
 DEFAULT_NORMALIZATION_BASELINE = 60  # C4
@@ -72,7 +72,7 @@ class NoteSeq:
     def to_midi(self, program=DEFAULT_SAVING_PROGRAM,
                 resolution=DEFAULT_RESOLUTION, tempo=DEFAULT_TEMPO):
         midi = PrettyMIDI(resolution=resolution, initial_tempo=tempo)
-        inst = Instrument(program, False, 'NoteSeq')
+        inst = Instrument(program, False, 'Composed by Super Piano 2 Music AI')
         inst.notes = copy.deepcopy(self.notes)
         midi.instruments.append(inst)
         return midi
